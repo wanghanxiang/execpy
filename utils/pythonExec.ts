@@ -161,19 +161,19 @@ const _runByText = async (text: string, params: Array<string> = [], options: any
     }
 }
 
-export const execByPath3 = async (path: string, params: Array<string> = []) => {
+const execByPath3 = async (path: string, params: Array<string> = []) => {
     return await _runByPath(path, params, { command: 'python3', type: 'exec' });
 }
 
-export const execByText3 = async (text: string, params: Array<string> = []) => {
+const execByText3 = async (text: string, params: Array<string> = []) => {
     return await _runByText(text, params, { command: 'python3', type: 'exec' });
 }
 
-export const spawnByPath3 = async (path: string, params: Array<string> = []) => {
+const spawnByPath3 = async (path: string, params: Array<string> = []) => {
     return await _runByPath(path, params, { command: 'python3', type: 'spawn' });
 }
 
-export const spawnByText3 = async (text: string, params: Array<string> = []) => {
+const spawnByText3 = async (text: string, params: Array<string> = []) => {
     return await _runByText(text, params, { command: 'python3', type: 'spawn' });
 }
 
@@ -182,6 +182,15 @@ export const spawnByText3 = async (text: string, params: Array<string> = []) => 
  * @param params 执行代码块的方法 接受三个 参数方法名、方法字符串、方法参数
  * @returns 
  */
-export const spawnByCodeBlock = async (params: Array<string>) => {
+const spawnByCodeBlock = async (params: Array<string>) => {
     return await _runPythonBycode(params, { command: 'python3', type: 'spawn' });
 }
+
+
+export {
+    execByPath3,
+    execByText3,
+    spawnByPath3,
+    spawnByText3,
+    spawnByCodeBlock
+};
