@@ -24,11 +24,9 @@ def exec_str_func(func_name, func_str, func_params):
   
   exec(func_exec, func_convert_dic)
 
-  try:
-    result_need = func_convert_dic[func_name](*func_params)
-    print(result_need)
-  except Exception as e:
-    print("error:{}".format(e))
+  result_need = func_convert_dic[func_name](*func_params)
+  print(result_need)
+
 
 if __name__ == "__main__":
   #func_name = "mock"
