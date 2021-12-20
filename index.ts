@@ -19,7 +19,11 @@ def mock(a,b,c):
             "2",
             "3"
         ];
-        const result = await spawnByCodeBlock(params);
+        let result = await spawnByCodeBlock(params);
+        if (result) {
+            let _t = result?.split(`\n`);
+            result = _t[_t.length - 2]; //这里可能需要动态判断一下，如果最后一个为空，找前一个数组
+        }
         console.log('result =>', result);
     } catch (error) {
         console.log('error =>', error);
