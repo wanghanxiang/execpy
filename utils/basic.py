@@ -2,8 +2,20 @@
 # -*- coding:utf-8 -*-
 # 执行代码块的python基类方法
 # 需要提前引用一些传进来的方法的代码块
-
 import sys
+import os
+import sys
+import numpy
+import random
+import time
+import datetime
+import logging
+import json
+import random
+import subprocess
+import hashlib
+import shutil
+import configparser
 
 def exec_str_func(func_name, func_str, func_params):
   # 转换字典临时保存
@@ -12,9 +24,11 @@ def exec_str_func(func_name, func_str, func_params):
   
   exec(func_exec, func_convert_dic)
 
-  # 传参（暂时先支持固定参数）
-  result_need = func_convert_dic[func_name](*func_params)
-  print("***{}".format(result_need))
+  try:
+    result_need = func_convert_dic[func_name](*func_params)
+    print(result_need)
+  except Exception as e:
+    print("error:{}".format(e))
 
 if __name__ == "__main__":
   #func_name = "mock"
